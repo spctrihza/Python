@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <style>
+            #update {
+                border: none;
+                background: transparent;
+            }
+        </style>
+    </head>
+    <body>
+        <form action="{{url_for('update')}}" method="POST">
+            {% for item in result %}
+            <input type="hidden" name="no" value="{{item.0}}">
+            <label for="">Nama Depan:</label>
+            <input type="text" name="nd" value="{{item.1}}" id="update" disabled>
+            <button type="button" id="tombol" onclick="myFun()">Active</button>
+            <br>
+            <label for="">Nama Belakang:</label>
+            <input type="text" name="nb" value="{{item.2}}"><br>
+            <label for="">Pilihan:</label>
+            <input type="text" name="pl" value="{{item.3}}"><br>
+            {% endfor %}
+        
+            <input type="submit" value="Submit">
+        </form>
+
+        <script>
+            var x = document.getElementById().disabled;
+            function myFun(){
+                if (x == true){
+                    document.getElementById("update").disabled = false;
+                    x = false
+                    document.getElementById("tombol").innerHTML = "Deactivate"
+                }else{
+                    document.getElementById("update").disabled = true;
+                    x = true
+                    document.getElementById("tombol").innerHTML = "Activate"
+                }
+            }
+        </script>
+    </body>
+</html>
